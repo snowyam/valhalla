@@ -89,6 +89,19 @@ $dropDown       : false;
         background-color: $bgHighlight; }}}
 }
 
+/* nav btn */
+
+.navbar-btn {
+  background-color: #19285b;
+  color: #fff;
+  border-color: $bgHighlight;
+  &:hover, &:focus {
+    background-color: $bgDefault;
+    color: #fff;
+    border-color: $bgHighlight;
+  }
+}
+
 /* footer */
 
 .footer {
@@ -115,3 +128,4 @@ $dropDown       : false;
     }
   }
 }
+
