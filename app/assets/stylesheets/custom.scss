@@ -12,6 +12,7 @@ html {
 body {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #eee;
+  padding-top: 60px;
   margin-bottom: 45px;
 }
 
@@ -89,7 +90,7 @@ $dropDown       : false;
         background-color: $bgHighlight; }}}
 }
 
-/* nav btn */
+/* buttons */
 
 .navbar-btn {
   background-color: #19285b;
@@ -99,6 +100,17 @@ $dropDown       : false;
     background-color: $bgDefault;
     color: #fff;
     border-color: $bgHighlight;
+  }
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #8fc34a;
+  border-color: #8fc34a;
+  &:hover, &:focus {
+    color: #fff;
+    background-color: #7caa40;
+    border-color: #8fc34a;
   }
 }
 
@@ -128,4 +140,3 @@ $dropDown       : false;
     }
   }
 }
-
