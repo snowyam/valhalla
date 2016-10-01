@@ -1,6 +1,10 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  private
+  protected
+
+    def after_sign_up_path_for(resource)
+      @user
+    end
 
     # Extend Devise's strong parameter for forms in sign up and edit.
     def sign_up_params
