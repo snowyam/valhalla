@@ -173,8 +173,12 @@ $dropDown       : false;
 /* gravatar */
 
 .gravatar {
-  border: 2px solid #eee;
+  border: 1px solid #eee;
+}
 
+.gravatar_edit {
+  margin-top: 15px;
+  border: 2px solid #eee;
 }
 
 /* profile page */
