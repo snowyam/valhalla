@@ -3,3 +3,9 @@ example:
   last_name: Sample
   email: sample@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+sample:
+  first_name: Sam
+  last_name: Exam
+  email: sam@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>

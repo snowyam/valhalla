@@ -1,9 +1,16 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
 
   def setup
-    @user = users(:example)
+    @user       = users(:example)
+    @other_user = users(:sample)
+  end
+
+  test "should redirect index when not logged in" do
+    get users_path
+    assert_redirected_to new_user_session_path
   end
 
   test "should get signup" do
@@ -17,9 +24,13 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_session_path
   end
 
-  test "should redirect update when not logged in" do
-    patch users_path, params: { user: { email: @user.email } }
-    assert_not flash.empty?
-    assert_redirected_to new_user_session_path
+  test "should be unauthorized update when not logged in" do
+    patch users_path(@user), params: { user: { first_name: "",
+                                               last_name:  "",
+                                               email:      "foo@example.com",
+                                               password:              "",
+                                               password_confirmation: "",
+                                               current_password:      "password" } }
+    assert_response 401
   end
 end
