@@ -9,3 +9,23 @@ sample:
   last_name: Exam
   email: sam@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+odin:
+  first_name: Odin
+  last_name: Allfather
+  email: odin@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+freya:
+  first_name: Freya
+  last_name: Vanir
+  email: freya@example.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  first_name: <%= "User #{n}" %>
+  last_name:  <%= "Num #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+<% end %>
