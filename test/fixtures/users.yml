@@ -3,24 +3,28 @@ example:
   last_name: Sample
   email: sample@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.zone.now %>
 
 sample:
   first_name: Sam
   last_name: Exam
   email: sam@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.zone.now %>
 
 odin:
   first_name: Odin
   last_name: Allfather
   email: odin@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.zone.now %>
 
 freya:
   first_name: Freya
   last_name: Vanir
   email: freya@example.com
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.zone.now %>
 
 <% 30.times do |n| %>
 user_<%= n %>:
@@ -28,4 +32,5 @@ user_<%= n %>:
   last_name:  <%= "Num #{n}" %>
   email: <%= "user-#{n}@example.com" %>
   encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
+  confirmed_at: <%= Time.zone.now %>
 <% end %>
