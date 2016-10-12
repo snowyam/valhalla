@@ -1,0 +1,15 @@
+galaxy:
+  content: "Swirl swirl swirl!"
+  created_at: <%= 10.minutes.ago %>
+
+oxygen:
+  content: "Yum!"
+  created_at: <%= 3.years.ago %>
+
+cat:
+  content: "Meow"
+  created_at: <%= 2.hours.ago %>
+
+most_recent:
+  content: "Writing a short test"
+  created_at: <%= Time.zone.now %>
