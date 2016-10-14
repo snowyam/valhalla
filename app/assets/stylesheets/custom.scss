@@ -124,6 +124,18 @@ $dropDown       : false;
   }
 }
 
+.btn-info {
+  float: right;
+  color: #fff;
+  background-color: #334477;
+  border-color: #334477;
+  &:hover, &:focus {
+    color: #fff;
+    background-color: #1c3d54;
+    border-color: #1c3d54;
+  }
+}
+
 /* footer */
 
 .footer {
@@ -232,5 +244,37 @@ $dropDown       : false;
     overflow: auto;
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
+  }
+}
+
+/* Sidebar */
+
+.list-group {
+  a {
+    color: #333;
+    display: block;
+    text-decoration: none;
+    &:hover,  &:focus {
+      color: $bgHighlight;
+    }
+  }
+}
+
+/* Textarea */
+
+textarea {
+  resize: vertical;
+}
+
+/* Delete post icon */
+.delete-post {
+  float: right;
+  font-size: 10px;
+  a {
+    color: #a0a0a0;
+    text-decoration: none;
+    &:hover,  &:focus {
+      color: #999;
+    }
   }
 }

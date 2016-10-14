@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [:index, :show]
+  resources :posts, only: [:create, :destroy]
 
   get '/help',   to: 'static_pages#help'
   get '/about',  to: 'static_pages#about'

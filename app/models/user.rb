@@ -12,4 +12,8 @@ class User < ApplicationRecord
   def name
     first_name + " " + last_name
   end
+
+  def feed
+    Post.where("user_id = ?", id)
+  end
 end

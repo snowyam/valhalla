@@ -1,3 +1,4 @@
+<% provide(:title, @user.name) %>
 <div class="row">
   <div class="col-md-10">
     <div class="jumbotron profile">
@@ -10,7 +11,15 @@
       </div>
       <div class="clearfix visible-xs-block"></div>
       <div class="col-xs-7 col-sm-7">
-        <p>Profile Posts</p>
+        <% if @user.posts.any? %>
+          <h3>Posts (<%= @user.posts.count %>)</h3>
+          <ul class="media-list">
+            <%= render @posts %>
+          </ul>
+          <%= will_paginate @posts %>
+        <% else %>
+          <h3>No posts by <%= @user.first_name %> </h3>
+        <% end %>
       </div>
     </div>
   </div>

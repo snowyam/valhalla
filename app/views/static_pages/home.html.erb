@@ -1,24 +1,41 @@
-<% provide(:title, "Log In or Sign Up") %>
-<div class="row">
-  <div class="col-md-6">
-    <br>
-    <h1>Join your brethern and connect with the realm on Valhalla.</h1>
-    <br>
-    <h3>
-      <i class="fa fa-feed"></i> Catch the news from fellow warriors in the feed.
-    </h3>
-    <br>
-    <h3>
-      <i class="fa fa-newspaper-o"></i> Watch for new things happening in Asgard.
-    </h3>
-    <br>
-    <h3>
-      <i class="fa fa-share"></i> Share your mark in history.
-    </h3>
+<% if user_signed_in? %>
+  <div class="row">
+    <div class="col-xs-4 col-md-2">
+      <%= render 'shared/sidebar' %>
+    </div>
+    <div class="clearfix visible-xs-block"></div>
+    <div class="col-xs-8 col-md-6">
+      <%= render 'shared/post_form' %>
+      <h3>Feed</h3>
+      <%= render 'shared/feed' %>
+    </div>
+    <div class="clearfix visible-xs-block"></div>
+    <div class="col-xs-4 col-md-4">
+      Extra
+    </div>
   </div>
-  <div class="col-md-6">
-    <br>
-    <%= render 'devise/registrations/form'%>
+<% else %>
+  <% provide(:title, "Log In or Sign Up") %>
+  <div class="row">
+    <div class="col-md-6">
+      <br>
+      <h1>Join your brethern and connect with the realm on Valhalla.</h1>
+      <br>
+      <h3>
+        <i class="fa fa-feed"></i> Catch the news from fellow warriors in the feed.
+      </h3>
+      <br>
+      <h3>
+        <i class="fa fa-newspaper-o"></i> Watch for new things happening in Asgard.
+      </h3>
+      <br>
+      <h3>
+        <i class="fa fa-share"></i> Share your mark in history.
+      </h3>
+    </div>
+    <div class="col-md-6">
+      <br>
+      <%= render 'devise/registrations/form'%>
+    </div>
   </div>
-</div>
-
+<% end %>

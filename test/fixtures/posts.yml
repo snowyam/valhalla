@@ -1,15 +1,46 @@
 galaxy:
   content: "Swirl swirl swirl!"
   created_at: <%= 10.minutes.ago %>
+  user: example
 
 oxygen:
   content: "Yum!"
   created_at: <%= 3.years.ago %>
+  user: example
 
 cat:
   content: "Meow"
   created_at: <%= 2.hours.ago %>
+  user: example
 
 most_recent:
   content: "Writing a short test"
   created_at: <%= Time.zone.now %>
+  user: example
+
+<% 30.times do |n| %>
+post_<%= n %>:
+  content: <%= Faker::Lorem.sentence(5) %>
+  created_at: <%= 4.days.ago %>
+  user: example
+<% end %>
+
+squirtle:
+  content: "Squirtle squirtle!"
+  created_at: <%= 1.year.ago %>
+  user: sample
+  
+hydrogen:
+  content: "Poof!"
+  created_at: <%= 2.days.ago %>
+  user: sample
+
+dog:
+  content: "Woof!"
+  created_at: <%= 10.minutes.ago %>
+  user: odin
+
+tree:
+  content: "Photosynthesis..."
+  created_at: <%= 3.hours.ago %>
+  user: odin

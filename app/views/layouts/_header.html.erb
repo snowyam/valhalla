@@ -15,10 +15,10 @@
         <li>
           <%= link_to current_user do %>
             <%= gravatar_for(current_user, size: 16) %>
-            <%=   current_user.first_name %>
+            <%= current_user.first_name %>
           <% end %>
         </li>
-        <li><%= link_to "Home", '#' %></li>
+        <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Find Friends", users_path %></li>
         <li>
           <%= link_to '#' do %>

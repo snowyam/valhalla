@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="media">
+      <div class="media-left">
+        <%= link_to gravatar_for(post.user, size: 40), post.user, class: "media-object" %>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">
+          <%= link_to post.user.name, post.user %>
+          <small>
+            <% if post.created_at > Time.now.beginning_of_day %>
+              <%= time_ago_in_words(post.created_at) %> ago
+            <% else %>
+              <%= post.created_at.strftime("%b %d, %Y") %>
+            <% end %>
+          </small>         
+          <% if current_user == post.user %>
+            <span class="delete-post">
+              <%= link_to post, method: :delete, data: { confirm: "Delete this post?" } do %>
+                <i class="fa fa-times"></i>
+              <% end %>
+            </span>
+          <% end %>
+        </h4>
+        <%= post.content %>
+      </div>
+    </div>
+  </div>
+</div>
