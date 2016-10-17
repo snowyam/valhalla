@@ -33,4 +33,14 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
                                                current_password:      "password" } }
     assert_response 401
   end
+
+  test "should redirect added_friends when not logged in" do
+    get added_friends_user_path(@user)
+    assert_redirected_to new_user_session_path
+  end
+
+  test "should redirect friend_requests when not logged in" do
+    get friend_requests_user_path(@user)
+    assert_redirected_to new_user_session_path
+  end
 end

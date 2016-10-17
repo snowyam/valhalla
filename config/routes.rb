@@ -12,8 +12,13 @@ Rails.application.routes.draw do
     delete '/logout', to: 'devise/sessions#destroy'
   end
 
-  resources :users, only: [:index, :show]
-  resources :posts, only: [:create, :destroy]
+  resources :users, only: [:index, :show] do
+    member do
+      get :added_friends, :friend_requests
+    end
+  end
+  resources :posts,       only: [:create, :destroy]
+  resources :friendships, only: [:create, :destroy]
 
   get '/help',   to: 'static_pages#help'
   get '/about',  to: 'static_pages#about'

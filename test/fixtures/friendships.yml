@@ -1,0 +1,15 @@
+one:
+  friender: example
+  friended: freya
+
+two:
+  friender: example
+  friended: odin
+
+three:
+  friender: freya
+  friended: example
+
+four:
+  friender: sample
+  friended: example

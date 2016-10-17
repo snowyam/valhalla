@@ -89,4 +89,15 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "should add friend and unfriend a user" do
+    egg = users(:example)
+    sam = users(:sample)
+    assert_not egg.added_friend?(sam)
+    egg.add_friend(sam)
+    assert egg.added_friend?(sam)
+    assert sam.friend_requests.include?(egg)
+    egg.unfriend(sam)
+    assert_not egg.added_friend?(sam)
+  end
+
 end

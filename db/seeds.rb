@@ -23,3 +23,11 @@ users = User.order(:created_at).take(6)
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.posts.create!(content: content) }
 end
+
+# Friendships
+users = User.all
+user  = users.first
+added_friends = users[2..50]
+friend_requests = users[3..40]
+added_friends.each { |friended| user.add_friend(friended) }
+friend_requests.each { |friender| friender.add_friend(user) }
