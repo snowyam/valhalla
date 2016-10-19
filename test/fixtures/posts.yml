@@ -44,3 +44,8 @@ tree:
   content: "Photosynthesis..."
   created_at: <%= 3.hours.ago %>
   user: odin
+
+bark:
+  content: "Forgotten wood..."
+  created_at: <%= 5.hours.ago %>
+  user: freya

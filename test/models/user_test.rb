@@ -100,4 +100,27 @@ class UserTest < ActiveSupport::TestCase
     assert_not egg.added_friend?(sam)
   end
 
+  test "feed should have the right posts" do
+    example = users(:example)
+    sample  = users(:sample)
+    odin    = users(:odin)
+    freya   = users(:freya)
+    # Posts from a friend
+    freya.posts.each do |friend_posts|
+      assert example.feed.include?(friend_posts)
+    end
+    # Posts from self
+    example.posts.each do |self_posts|
+      assert example.feed.include?(self_posts)
+    end
+    # Posts from a requested friend
+    odin.posts.each do |friend_requested_posts|
+      assert_not example.feed.include?(friend_requested_posts)
+    end
+    # Posts from an unfriended
+    sample.posts.each do |not_friend_posts|
+      assert_not example.feed.include?(not_friend_posts)
+    end
+  end
+
 end

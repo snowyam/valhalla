@@ -28,7 +28,14 @@ class User < ApplicationRecord
 
   # Home page posts feed.
   def feed
-    Post.where("user_id = ?", id)
+    added_friends_id  = "SELECT friended_id FROM friendships
+                         WHERE  friender_id = :user_id"
+    mutual_friends_id = "SELECT friender_id FROM friendships
+                         WHERE  friended_id = :user_id"
+
+    Post.where("user_id IN (#{added_friends_id})
+                AND user_id IN (#{mutual_friends_id})
+                OR user_id = :user_id", user_id: self.id)
   end
 
   # Add a user as a friend / Send friend request.
