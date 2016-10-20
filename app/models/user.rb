@@ -94,7 +94,7 @@ class User < ApplicationRecord
 
     User.where("id NOT IN (#{added_friends_id})
                 AND id NOT IN (#{pending_friends_id})
-                AND NOT id = :user.id", user_id: self.id)
+                AND NOT id = :user_id", user_id: self.id)
   end
 
 end
