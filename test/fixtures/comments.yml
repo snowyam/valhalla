@@ -1,0 +1,55 @@
+starlight:
+  user: example
+  post: galaxy
+  content: "The stars shine!"
+  created_at: <%= 30.minutes.ago %>
+
+oldest:
+  user: example
+  post: galaxy
+  content: "The first comment!"
+  created_at: <%= 1.year.ago %>
+
+youngest:
+  user: example
+  post: galaxy
+  content: "The last!"
+  created_at: <%= Time.zone.now %>
+
+cannon:
+  user: example
+  post: galaxy
+  content: "Booom!"
+  created_at: <%= 10.minutes.ago %>
+
+<% 30.times do |n| %>
+comment_<%= n %>:
+  post: post_<%= n %>
+  content: <%= Faker::Lorem.sentence(2) %>
+  created_at: <%= 1.day.ago %>
+  user: example
+<% end %>
+
+fire:
+  user: sample
+  post: galaxy
+  content: "Booom!"
+  created_at: <%= 50.minutes.ago %>
+
+water:
+  user: sample
+  post: galaxy
+  content: "Booom!"
+  created_at: <%= 45.minutes.ago %>
+
+earth:
+  user: odin
+  post: galaxy
+  content: "Booom!"
+  created_at: <%= 35.minutes.ago %>
+
+wind:
+  user: odin
+  post: galaxy
+  content: "Booom!"
+  created_at: <%= 24.minutes.ago %>

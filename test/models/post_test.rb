@@ -38,4 +38,13 @@ class PostTest < ActiveSupport::TestCase
     end
   end
 
+  test "associated comments with post should be destroyed" do
+    @post.save
+    @post.comments.create!(user_id: @user.id,
+                           content: "Lorem ipsum")
+    assert_difference 'Comment.count', -1 do
+      @post.destroy
+    end
+  end
+
 end

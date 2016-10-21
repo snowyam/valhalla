@@ -33,8 +33,17 @@ added_friends.each { |friended| user.add_friend(friended) }
 friend_requests.each { |friender| friender.add_friend(user) }
 
 # Likes
-users = User.order(:created_at).take(10)
-posts = Post.order(:created_at).take(100)
+users = User.order(:created_at).take(5)
+posts = Post.order(:created_at).take(80)
 posts.each do |post|
   users.each { |user| post.likes.create!(user_id: user.id)}
+end
+
+# Comments
+users = User.order(:created_at).take(3)
+posts = Post.order(:created_at).take(80)
+posts.each do |post|
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| post.comments.create!(user_id: user.id,
+                                            content: content) }
 end

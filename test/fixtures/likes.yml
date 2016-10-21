@@ -3,12 +3,12 @@ two:
   post: galaxy
   created_at: <%= 30.minutes.ago %>
 
-oldest:
+one:
   user: example
   post: oxygen
   created_at: <%= 1.hour.ago %>
 
-youngest:
+four:
   user: example
   post: cat
   created_at: <%= Time.zone.now %>

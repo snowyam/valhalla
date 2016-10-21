@@ -1,0 +1,25 @@
+<div class="media">
+  <div class="media-left">
+    <%= link_to gravatar_for(comment.user, size: 32), comment.user, class: "media-object" %>
+  </div>
+  <div class="media-body">
+    <h5 class="media-heading">
+      <%= link_to comment.user.name, comment.user %>
+      <small>
+        <% if comment.created_at > Time.now.beginning_of_day %>
+          <%= time_ago_in_words(comment.created_at) %> ago
+        <% else %>
+          <%= comment.created_at.strftime("%b %d, %Y") %>
+        <% end %>
+      </small>
+      <% if current_user == comment.user %>
+        <span class="delete-post">
+          <%= link_to comment, method: :delete, data: { confirm: "Delete this comment?" } do %>
+            <i class="fa fa-times"></i>
+          <% end %>
+        </span>
+      <% end %>
+    </h5>
+    <%= comment.content %>
+  </div>
+</div>
