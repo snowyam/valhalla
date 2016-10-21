@@ -1,0 +1,19 @@
+two:
+  user: example
+  post: galaxy
+  created_at: <%= 30.minutes.ago %>
+
+oldest:
+  user: example
+  post: oxygen
+  created_at: <%= 1.hour.ago %>
+
+youngest:
+  user: example
+  post: cat
+  created_at: <%= Time.zone.now %>
+
+three:
+  user: example
+  post: most_recent
+  created_at: <%= 10.minutes.ago %>

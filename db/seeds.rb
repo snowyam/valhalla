@@ -5,7 +5,7 @@ User.create!(first_name:  "Valhalla",
              password_confirmation: "foobar",
              confirmed_at: Time.zone.now)
 
-99.times do |n|
+61.times do |n|
   first_name = Faker::Name.first_name
   last_name  = Faker::Name.last_name
   email = "example-#{n+1}@example.org"
@@ -19,7 +19,7 @@ User.create!(first_name:  "Valhalla",
 end
 
 users = User.order(:created_at).take(6)
-50.times do
+20.times do
   content = Faker::Lorem.sentence(5)
   users.each { |user| user.posts.create!(content: content) }
 end
@@ -31,3 +31,10 @@ added_friends = users[2..50]
 friend_requests = users[3..40]
 added_friends.each { |friended| user.add_friend(friended) }
 friend_requests.each { |friender| friender.add_friend(user) }
+
+# Likes
+users = User.order(:created_at).take(10)
+posts = Post.order(:created_at).take(100)
+posts.each do |post|
+  users.each { |user| post.likes.create!(user_id: user.id)}
+end

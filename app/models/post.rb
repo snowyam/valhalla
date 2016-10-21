@@ -3,4 +3,6 @@ class Post < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 12000 }
+  has_many :likes, dependent: :destroy
+  has_many :liking_users, through: :likes, source: :user
 end

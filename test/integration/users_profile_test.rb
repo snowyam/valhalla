@@ -19,6 +19,7 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     assert_select 'div.pagination'
     @user.posts.paginate(page: 1, per_page: 20).each do |post|
       assert_match post.content, response.body
+      assert_match post.likes.count.to_s, response.body
     end
   end
 

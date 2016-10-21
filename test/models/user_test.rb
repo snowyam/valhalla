@@ -123,4 +123,13 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "associated likes with user should be destroyed" do
+    @user.save
+    @post = @user.posts.create!(content: "Lorem ipsum")
+    @post.likes.create!(user_id: @user.id)
+    assert_difference 'Like.count', -1 do
+      @user.destroy
+    end
+  end
+
 end

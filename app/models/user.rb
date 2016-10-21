@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+
   # Active friendships are initially outgoing friend requests.
   # Passive friendships are incoming friend requests.
   # Both users with active friendships form a mutual friendship.
@@ -13,6 +14,9 @@ class User < ApplicationRecord
                              source:  :friended
   has_many :friend_requests, through: :passive_friendships,
                              source:  :friender
+
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :confirmable,
@@ -78,7 +82,7 @@ class User < ApplicationRecord
     added_friends_id  = "SELECT friended_id FROM friendships
                          WHERE  friender_id = :user_id"
     pending_friends_id = "SELECT friender_id FROM friendships
-                         WHERE  friended_id = :user_id"
+                          WHERE  friended_id = :user_id"
 
     User.where("id NOT IN (#{added_friends_id})
                 AND id IN (#{pending_friends_id})
@@ -90,7 +94,7 @@ class User < ApplicationRecord
     added_friends_id  = "SELECT friended_id FROM friendships
                          WHERE  friender_id = :user_id"
     pending_friends_id = "SELECT friender_id FROM friendships
-                         WHERE  friended_id = :user_id"
+                          WHERE  friended_id = :user_id"
 
     User.where("id NOT IN (#{added_friends_id})
                 AND id NOT IN (#{pending_friends_id})

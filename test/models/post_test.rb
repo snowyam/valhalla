@@ -30,4 +30,12 @@ class PostTest < ActiveSupport::TestCase
     assert_equal posts(:most_recent), Post.first
   end
 
+  test "associated likes with post should be destroyed" do
+    @post.save
+    @post.likes.create!(user_id: @user.id)
+    assert_difference 'Like.count', -1 do
+      @post.destroy
+    end
+  end
+
 end
