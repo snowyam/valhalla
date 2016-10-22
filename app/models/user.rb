@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  has_one  :profile, dependent: :destroy
+  before_create :build_default_profile
+
   has_many :posts, dependent: :destroy
 
   # Active friendships are initially outgoing friend requests.
@@ -104,4 +107,11 @@ class User < ApplicationRecord
                 AND NOT id = :user_id", user_id: self.id)
   end
 
+  private
+
+    def build_default_profile
+      build_profile
+      true
+    end
+    
 end

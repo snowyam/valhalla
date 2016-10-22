@@ -47,3 +47,10 @@ posts.each do |post|
   users.each { |user| post.comments.create!(user_id: user.id,
                                             content: content) }
 end
+
+# Profiles
+users = User.order(:created_at).take(3)
+users.each do |user|
+  bio = Faker::Lorem.sentence
+  user.profile.update(bio: bio)
+end

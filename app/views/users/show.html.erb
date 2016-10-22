@@ -5,10 +5,14 @@
       <%= gravatar_for(@user, size: 160) %>
       <h2><%= @user.name %></h2>
       <%= render 'friend_form' if user_signed_in? %>
+      <% if @user == current_user %>
+        <%= button_to "Edit Profile", edit_profile_path(current_user), method: :get, class: "btn btn-info btn-sm" %>
+      <% end %>
     </div>
     <div class="row">
       <div class="col-xs-5 col-sm-5">
           <h3>Profile</h3>
+          <%= render 'profiles/profile' %>
       </div>
       <div class="clearfix visible-xs-block"></div>
       <div class="col-xs-7 col-sm-7">     

@@ -1,0 +1,60 @@
+<% if @user.profile.bio != nil %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Bio</h4>
+    </div>
+    <div class="panel-body">
+      <%= @user.profile.bio %>
+    </div>
+  </div>
+<% end %>
+<% if @user.profile.birthday != nil %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Birthday</h4>
+    </div>
+    <div class="panel-body">
+      <%= @user.profile.birthday.strftime("%b %d, %Y") %>
+    </div>
+  </div>
+<% end %>
+<% if @user.profile.birthplace != nil %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Birthplace</h4>
+    </div>
+    <div class="panel-body">
+      <%= @user.profile.birthplace %>
+    </div>
+  </div>
+<% end %>
+<% if @user.profile.currentplace != nil %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Currently Living</h4>
+    </div>
+    <div class="panel-body">
+      <%= @user.profile.currentplace %>
+    </div>
+  </div>
+<% end %>
+<% if @user.profile.education != nil %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Education</h4>
+    </div>
+    <div class="panel-body">
+      <%= @user.profile.education %>
+    </div>
+  </div>
+<% end %>
+<% if @user.profile.occupation != nil %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">Occupation</h4>
+    </div>
+    <div class="panel-body">
+      <%= @user.profile.occupation %>
+    </div>
+  </div>
+<% end %>
