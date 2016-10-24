@@ -23,8 +23,9 @@ Rails.application.routes.draw do
   resources :comments,    only: [:create, :destroy]
   resources :profiles,    only: [:edit, :update]
 
-  get '/help',   to: 'static_pages#help'
-  get '/about',  to: 'static_pages#about'
+  get '/help',    to: 'static_pages#help'
+  get '/about',   to: 'static_pages#about'
+  get '/license', to: 'static_pages#license'
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

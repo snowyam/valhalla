@@ -26,6 +26,16 @@ body {
   margin-bottom: 45px;
 }
 
+p {
+  a {
+    text-decoration: none;
+    &:hover, &:focus {
+      text-decoration: none;
+
+    }
+  }
+}
+
 /* header */
 
 $bgDefault      : #334477;

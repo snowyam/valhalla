@@ -15,6 +15,9 @@ class StaticPagesController < ApplicationController
   def about
   end
 
+  def license
+  end
+
   private
 
     # Show devise forms on static pages.

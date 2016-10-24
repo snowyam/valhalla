@@ -29,4 +29,10 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_select "title", "#{@base_title} | About"
   end
 
+  test "should get license" do
+    get license_path
+    assert_response :success
+    assert_select "title", "#{@base_title} | License"
+  end
+
 end
